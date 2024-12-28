@@ -8,10 +8,10 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Set the compiler to Clang
-set(CMAKE_CXX_COMPILER clang++-18)
+# set(CMAKE_CXX_COMPILER clang++-18)
 
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
 # Add the src and tests directories
 # add_subdirectory(src)
