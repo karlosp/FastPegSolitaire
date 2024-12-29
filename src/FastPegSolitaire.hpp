@@ -5,7 +5,6 @@
 #include <ostream>
 #include <utility>
 
-#include <vector>
 namespace {
 constexpr std::uint64_t p33 = 1ul << 32;
 constexpr std::uint64_t p32 = 1ul << 31;
@@ -198,7 +197,9 @@ constexpr const std::array<std::pair<std::uint64_t, std::uint64_t>, 76> can_move
 
 std::uint64_t counter{};
 
-std::array<std::uint64_t, 33> solved_boards;
+std::array<std::uint64_t, 32> solved_boards{0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul,
+                                            0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul,
+                                            0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul, 0ul};
 
 bool solve(const std::uint64_t board, const std::size_t pegs) {
   ++counter;

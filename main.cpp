@@ -6,6 +6,7 @@ using namespace FastPegSolitaire;
 
 int main(int argc, char* argv[]) {
   const auto board = get_english_board();
+  const auto peg_count = __builtin_popcountll(board);
 
   print_board(board);
   auto result = false;
@@ -13,15 +14,11 @@ int main(int argc, char* argv[]) {
   const int loop = 1000;
 
   auto start = std::chrono::high_resolution_clock::now();
-  int results_count = 0;
 
   for (int i = 0; i < loop; i++) {
     counter = 0;
 
-    result = solve(board, __builtin_popcountll(board));
-    if (result) {
-      results_count++;
-    }
+    result = solve(board, peg_count);
   }
   auto end = std::chrono::high_resolution_clock::now();
 
@@ -33,7 +30,7 @@ int main(int argc, char* argv[]) {
         print_board(solved_board);
       }
     }
-    std::cout << "Solved! " << results_count << std::endl;
+    std::cout << "Solved! " << std::endl;
   } else {
     std::cout << "Not solved!" << std::endl;
   }
