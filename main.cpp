@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 
   auto result = false;
 
-  const int loop = 100;
+  const int loop = 1000;
 
   auto start = std::chrono::high_resolution_clock::now();
   int results_count = 0;
