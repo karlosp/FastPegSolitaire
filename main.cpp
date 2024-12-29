@@ -1,4 +1,3 @@
-#include <bitset>
 #include <chrono>
 #include "src/FastPegSolitaire.hpp"
 
@@ -6,6 +5,7 @@ using namespace FastPegSolitaire;
 
 int main(int argc, char* argv[]) {
   const auto board = get_english_board();
+  /*const auto board = get_diamond_board();*/
   const auto peg_count = __builtin_popcountll(board);
 
   print_board(board);

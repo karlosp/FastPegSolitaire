@@ -48,6 +48,11 @@ constexpr std::uint64_t get_english_board() {
   return 0b111111111111111101111111111111111;  // One empty spot in the center
 }
 
+constexpr std::uint64_t get_diamond_board() {
+  // English board initial state (33-bit representation)
+  return 0b010111011111011101110111110111010;  // One empty spot in the center
+}
+
 std::uint64_t get_one_move() {
   return 0b110001000000000000000000000000000;
 }
