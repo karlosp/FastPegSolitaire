@@ -44,7 +44,7 @@ std::uint64_t p1 = 1ul << 0;
 }  // namespace
 
 namespace FastPegSolitaire {
-std::uint64_t get_english_board() {
+constexpr std::uint64_t get_english_board() {
   // English board initial state (33-bit representation)
   return 0b111111111111111101111111111111111;  // One empty spot in the center
 }
@@ -53,8 +53,10 @@ std::uint64_t get_one_move() {
   return 0b110001000000000000000000000000000;
 }
 
-inline std::vector<char> board_to_string(std::uint64_t board) {
-  std::vector<char> result(33, '0');
+constexpr inline std::array<char, 33> board_to_string(std::uint64_t board) {
+  std::array<char, 33> result{'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0',
+                              '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'};
+
   for (int i = 0; i < 33; i++) {
     if (board & (1UL << i)) {
       result[i] = 'X';
