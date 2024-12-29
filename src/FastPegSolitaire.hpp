@@ -1,9 +1,7 @@
 #include <array>
-#include <bitset>
 #include <cstddef>
 #include <cstdint>
 #include <iostream>
-#include <iterator>
 #include <ostream>
 #include <utility>
 
@@ -208,12 +206,319 @@ bool solve(const std::uint64_t board, const std::size_t pegs) {
     return true;
   }
 
-  for (const auto& can_move : can_moves) {
-    const auto new_pegs = pegs - 1;
-    if (((board ^ can_move.first) & can_move.second) == 0 && solve(board ^ can_move.second, new_pegs)) {
-      solved_boards[new_pegs] = board;
-      return true;
-    }
+  /*for (const auto& can_move : can_moves) {*/
+  /*  const auto new_pegs = pegs - 1;*/
+  /*  if (((board ^ can_move.first) & can_move.second) == 0 && solve(board ^ can_move.second, new_pegs)) {*/
+  /*    solved_boards[new_pegs] = board;*/
+  /*    return true;*/
+  /*  }*/
+  /*}*/
+
+  // Unrolling the loop, it is 2x faster
+  const auto new_pegs = pegs - 1;
+  if (((board ^ can_moves[0].first) & can_moves[0].second) == 0 && solve(board ^ can_moves[0].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[1].first) & can_moves[1].second) == 0 && solve(board ^ can_moves[1].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[2].first) & can_moves[2].second) == 0 && solve(board ^ can_moves[2].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[3].first) & can_moves[3].second) == 0 && solve(board ^ can_moves[3].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[4].first) & can_moves[4].second) == 0 && solve(board ^ can_moves[4].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[5].first) & can_moves[5].second) == 0 && solve(board ^ can_moves[5].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[6].first) & can_moves[6].second) == 0 && solve(board ^ can_moves[6].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[7].first) & can_moves[7].second) == 0 && solve(board ^ can_moves[7].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[8].first) & can_moves[8].second) == 0 && solve(board ^ can_moves[8].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[9].first) & can_moves[9].second) == 0 && solve(board ^ can_moves[9].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[10].first) & can_moves[10].second) == 0 && solve(board ^ can_moves[10].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[11].first) & can_moves[11].second) == 0 && solve(board ^ can_moves[11].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[12].first) & can_moves[12].second) == 0 && solve(board ^ can_moves[12].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[13].first) & can_moves[13].second) == 0 && solve(board ^ can_moves[13].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[14].first) & can_moves[14].second) == 0 && solve(board ^ can_moves[14].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[15].first) & can_moves[15].second) == 0 && solve(board ^ can_moves[15].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[16].first) & can_moves[16].second) == 0 && solve(board ^ can_moves[16].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[17].first) & can_moves[17].second) == 0 && solve(board ^ can_moves[17].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[18].first) & can_moves[18].second) == 0 && solve(board ^ can_moves[18].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[19].first) & can_moves[19].second) == 0 && solve(board ^ can_moves[19].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[20].first) & can_moves[20].second) == 0 && solve(board ^ can_moves[20].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[21].first) & can_moves[21].second) == 0 && solve(board ^ can_moves[21].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[22].first) & can_moves[22].second) == 0 && solve(board ^ can_moves[22].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[23].first) & can_moves[23].second) == 0 && solve(board ^ can_moves[23].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[24].first) & can_moves[24].second) == 0 && solve(board ^ can_moves[24].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[25].first) & can_moves[25].second) == 0 && solve(board ^ can_moves[25].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[26].first) & can_moves[26].second) == 0 && solve(board ^ can_moves[26].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[27].first) & can_moves[27].second) == 0 && solve(board ^ can_moves[27].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[28].first) & can_moves[28].second) == 0 && solve(board ^ can_moves[28].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[29].first) & can_moves[29].second) == 0 && solve(board ^ can_moves[29].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[30].first) & can_moves[30].second) == 0 && solve(board ^ can_moves[30].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[31].first) & can_moves[31].second) == 0 && solve(board ^ can_moves[31].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[32].first) & can_moves[32].second) == 0 && solve(board ^ can_moves[32].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[33].first) & can_moves[33].second) == 0 && solve(board ^ can_moves[33].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[34].first) & can_moves[34].second) == 0 && solve(board ^ can_moves[34].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[35].first) & can_moves[35].second) == 0 && solve(board ^ can_moves[35].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[36].first) & can_moves[36].second) == 0 && solve(board ^ can_moves[36].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[37].first) & can_moves[37].second) == 0 && solve(board ^ can_moves[37].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[38].first) & can_moves[38].second) == 0 && solve(board ^ can_moves[38].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[39].first) & can_moves[39].second) == 0 && solve(board ^ can_moves[39].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[40].first) & can_moves[40].second) == 0 && solve(board ^ can_moves[40].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[41].first) & can_moves[41].second) == 0 && solve(board ^ can_moves[41].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[42].first) & can_moves[42].second) == 0 && solve(board ^ can_moves[42].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[43].first) & can_moves[43].second) == 0 && solve(board ^ can_moves[43].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[44].first) & can_moves[44].second) == 0 && solve(board ^ can_moves[44].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[45].first) & can_moves[45].second) == 0 && solve(board ^ can_moves[45].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[46].first) & can_moves[46].second) == 0 && solve(board ^ can_moves[46].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[47].first) & can_moves[47].second) == 0 && solve(board ^ can_moves[47].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[48].first) & can_moves[48].second) == 0 && solve(board ^ can_moves[48].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[49].first) & can_moves[49].second) == 0 && solve(board ^ can_moves[49].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[50].first) & can_moves[50].second) == 0 && solve(board ^ can_moves[50].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[51].first) & can_moves[51].second) == 0 && solve(board ^ can_moves[51].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[52].first) & can_moves[52].second) == 0 && solve(board ^ can_moves[52].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[53].first) & can_moves[53].second) == 0 && solve(board ^ can_moves[53].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[54].first) & can_moves[54].second) == 0 && solve(board ^ can_moves[54].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[55].first) & can_moves[55].second) == 0 && solve(board ^ can_moves[55].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[56].first) & can_moves[56].second) == 0 && solve(board ^ can_moves[56].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[57].first) & can_moves[57].second) == 0 && solve(board ^ can_moves[57].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[58].first) & can_moves[58].second) == 0 && solve(board ^ can_moves[58].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[59].first) & can_moves[59].second) == 0 && solve(board ^ can_moves[59].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[60].first) & can_moves[60].second) == 0 && solve(board ^ can_moves[60].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[61].first) & can_moves[61].second) == 0 && solve(board ^ can_moves[61].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[62].first) & can_moves[62].second) == 0 && solve(board ^ can_moves[62].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[63].first) & can_moves[63].second) == 0 && solve(board ^ can_moves[63].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[64].first) & can_moves[64].second) == 0 && solve(board ^ can_moves[64].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[65].first) & can_moves[65].second) == 0 && solve(board ^ can_moves[65].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[66].first) & can_moves[66].second) == 0 && solve(board ^ can_moves[66].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[67].first) & can_moves[67].second) == 0 && solve(board ^ can_moves[67].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[68].first) & can_moves[68].second) == 0 && solve(board ^ can_moves[68].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[69].first) & can_moves[69].second) == 0 && solve(board ^ can_moves[69].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[70].first) & can_moves[70].second) == 0 && solve(board ^ can_moves[70].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[71].first) & can_moves[71].second) == 0 && solve(board ^ can_moves[71].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[72].first) & can_moves[72].second) == 0 && solve(board ^ can_moves[72].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[73].first) & can_moves[73].second) == 0 && solve(board ^ can_moves[73].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[74].first) & can_moves[74].second) == 0 && solve(board ^ can_moves[74].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
+  }
+  if (((board ^ can_moves[75].first) & can_moves[75].second) == 0 && solve(board ^ can_moves[75].second, new_pegs)) {
+    solved_boards[new_pegs] = board;
+    return true;
   }
 
   return false;

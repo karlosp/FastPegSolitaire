@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 
   auto result = false;
 
-  const int loop = 1000;
+  const int loop = 100;
 
   auto start = std::chrono::high_resolution_clock::now();
   int results_count = 0;
@@ -34,7 +34,9 @@ int main(int argc, char* argv[]) {
 
   if (result) {
     for (const auto& solved_board : solved_boards) {
-      if (__builtin_popcountll(solved_board)) {
+      const auto peg_count = __builtin_popcountll(solved_board);
+      std::cout << "Pegs: " << peg_count << std::endl;
+      if (peg_count) {
         print_board(solved_board);
       }
     }
