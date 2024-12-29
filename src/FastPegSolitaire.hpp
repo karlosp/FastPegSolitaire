@@ -7,39 +7,39 @@
 
 #include <vector>
 namespace {
-std::uint64_t p33 = 1ul << 32;
-std::uint64_t p32 = 1ul << 31;
-std::uint64_t p31 = 1ul << 30;
-std::uint64_t p30 = 1ul << 29;
-std::uint64_t p29 = 1ul << 28;
-std::uint64_t p28 = 1ul << 27;
-std::uint64_t p27 = 1ul << 26;
-std::uint64_t p26 = 1ul << 25;
-std::uint64_t p25 = 1ul << 24;
-std::uint64_t p24 = 1ul << 23;
-std::uint64_t p23 = 1ul << 22;
-std::uint64_t p22 = 1ul << 21;
-std::uint64_t p21 = 1ul << 20;
-std::uint64_t p20 = 1ul << 19;
-std::uint64_t p19 = 1ul << 18;
-std::uint64_t p18 = 1ul << 17;
-std::uint64_t p17 = 1ul << 16;
-std::uint64_t p16 = 1ul << 15;
-std::uint64_t p15 = 1ul << 14;
-std::uint64_t p14 = 1ul << 13;
-std::uint64_t p13 = 1ul << 12;
-std::uint64_t p12 = 1ul << 11;
-std::uint64_t p11 = 1ul << 10;
-std::uint64_t p10 = 1ul << 9;
-std::uint64_t p9 = 1ul << 8;
-std::uint64_t p8 = 1ul << 7;
-std::uint64_t p7 = 1ul << 6;
-std::uint64_t p6 = 1ul << 5;
-std::uint64_t p5 = 1ul << 4;
-std::uint64_t p4 = 1ul << 3;
-std::uint64_t p3 = 1ul << 2;
-std::uint64_t p2 = 1ul << 1;
-std::uint64_t p1 = 1ul << 0;
+constexpr std::uint64_t p33 = 1ul << 32;
+constexpr std::uint64_t p32 = 1ul << 31;
+constexpr std::uint64_t p31 = 1ul << 30;
+constexpr std::uint64_t p30 = 1ul << 29;
+constexpr std::uint64_t p29 = 1ul << 28;
+constexpr std::uint64_t p28 = 1ul << 27;
+constexpr std::uint64_t p27 = 1ul << 26;
+constexpr std::uint64_t p26 = 1ul << 25;
+constexpr std::uint64_t p25 = 1ul << 24;
+constexpr std::uint64_t p24 = 1ul << 23;
+constexpr std::uint64_t p23 = 1ul << 22;
+constexpr std::uint64_t p22 = 1ul << 21;
+constexpr std::uint64_t p21 = 1ul << 20;
+constexpr std::uint64_t p20 = 1ul << 19;
+constexpr std::uint64_t p19 = 1ul << 18;
+constexpr std::uint64_t p18 = 1ul << 17;
+constexpr std::uint64_t p17 = 1ul << 16;
+constexpr std::uint64_t p16 = 1ul << 15;
+constexpr std::uint64_t p15 = 1ul << 14;
+constexpr std::uint64_t p14 = 1ul << 13;
+constexpr std::uint64_t p13 = 1ul << 12;
+constexpr std::uint64_t p12 = 1ul << 11;
+constexpr std::uint64_t p11 = 1ul << 10;
+constexpr std::uint64_t p10 = 1ul << 9;
+constexpr std::uint64_t p9 = 1ul << 8;
+constexpr std::uint64_t p8 = 1ul << 7;
+constexpr std::uint64_t p7 = 1ul << 6;
+constexpr std::uint64_t p6 = 1ul << 5;
+constexpr std::uint64_t p5 = 1ul << 4;
+constexpr std::uint64_t p4 = 1ul << 3;
+constexpr std::uint64_t p3 = 1ul << 2;
+constexpr std::uint64_t p2 = 1ul << 1;
+constexpr std::uint64_t p1 = 1ul << 0;
 
 }  // namespace
 
