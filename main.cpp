@@ -8,13 +8,6 @@ int main(int argc, char* argv[]) {
   const auto board = get_english_board();
 
   print_board(board);
-  std::cout << std::endl;
-
-  const auto simple_board = get_one_move();
-  print_board(simple_board);
-
-  std::cout << std::endl;
-
   auto result = false;
 
   const int loop = 1000;
