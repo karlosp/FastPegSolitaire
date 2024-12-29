@@ -84,10 +84,10 @@ inline void print_board(std::uint64_t board) {
   std::cout << std::endl;
 }
 
-static const std::vector<std::pair<std::uint64_t, std::uint64_t>> can_moves{
+constexpr const std::array<std::pair<std::uint64_t, std::uint64_t>, 76> can_moves{
     // Peg 33
-    {p33 | p30, p33 | p30 | p25},  // 33 down
-    {p33 | p32, p33 | p32 | p31},  // 33 right
+    std::pair<std::uint64_t, std::uint64_t>{p33 | p30, p33 | p30 | p25},  // 33 down
+    {p33 | p32, p33 | p32 | p31},                                         // 33 right
     // Peg 32
     {p32 | p29, p32 | p29 | p24},  // 32 down
     // Peg 31
@@ -193,7 +193,7 @@ static const std::vector<std::pair<std::uint64_t, std::uint64_t>> can_moves{
     {p2 | p5, p2 | p5 | p10},  // 2 up
     // Peg 1
     {p1 | p2, p1 | p2 | p3},  // 1 left
-    {p1 | p4, p1 | p4 | p9},  // 1 up
+    {p1 | p4, p1 | p4 | p9}   // 1 up
 };
 
 std::uint64_t counter{};
