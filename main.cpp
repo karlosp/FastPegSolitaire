@@ -11,13 +11,14 @@ int main(int argc, char* argv[]) {
   print_board(board);
   auto result = false;
 
-  const int loop = 1000;
+  const int loop = 10;
 
   auto start = std::chrono::high_resolution_clock::now();
 
   for (int i = 0; i < loop; i++) {
     counter = 0;
 
+    count_empty = 0;
     result = solve(board, peg_count);
   }
   auto end = std::chrono::high_resolution_clock::now();
