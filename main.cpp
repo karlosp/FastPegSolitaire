@@ -4,8 +4,8 @@
 using namespace FastPegSolitaire;
 
 int main(int argc, char* argv[]) {
-  const auto board = get_english_board();
-  /*const auto board = get_diamond_board();*/
+  auto board = get_english_board();
+  board = get_diamond_board();
   const auto peg_count = __builtin_popcountll(board);
 
   print_board(board);
@@ -44,6 +44,11 @@ int main(int argc, char* argv[]) {
   /*counter = 20279;*/
   std::cout << "Counter:" << counter << std::endl;
   std::cout << "Counter/ms: " << counter / loop_time << std::endl;
+  std::cout << "Count empty: " << count_empty << std::endl;
+
+  /*const auto simple = get_one_move();*/
+  /*print_board(simple);*/
+  /*print_board(rotate_empty_corner_180(simple));*/
 
   return 0;
 }

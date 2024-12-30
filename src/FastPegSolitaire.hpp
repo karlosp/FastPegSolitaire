@@ -1,4 +1,5 @@
 #include <array>
+#include <bitset>
 #include <cstddef>
 #include <cstdint>
 #include <iostream>
@@ -88,7 +89,41 @@ constexpr std::uint64_t get_diamond_board() {
 }
 
 std::uint64_t get_one_move() {
-  return 0b110001000000000000000000000000000;
+  return 0b000011000000000000000000000000000;
+}
+
+std::uint64_t rotate_empty_corner_180(std::uint64_t board) {
+  std::bitset<64> bits(board);
+
+  std::bitset<64> result;
+
+  result.set(28, bits.test(4));
+  result.set(27, bits.test(5));
+  result.set(26, bits.test(6));
+  result.set(25, bits.test(7));
+  result.set(24, bits.test(8));
+  result.set(23, bits.test(9));
+  result.set(22, bits.test(10));
+  result.set(21, bits.test(11));
+  result.set(20, bits.test(12));
+  result.set(19, bits.test(13));
+  result.set(18, bits.test(14));
+  result.set(17, bits.test(15));
+  result.set(16, bits.test(16));
+  result.set(15, bits.test(17));
+  result.set(14, bits.test(18));
+  result.set(13, bits.test(19));
+  result.set(12, bits.test(20));
+  result.set(11, bits.test(21));
+  result.set(10, bits.test(22));
+  result.set(9, bits.test(23));
+  result.set(8, bits.test(24));
+  result.set(7, bits.test(25));
+  result.set(6, bits.test(26));
+  result.set(5, bits.test(27));
+  result.set(4, bits.test(28));
+
+  return result.to_ulong();
 }
 
 constexpr inline std::array<char, 33> board_to_string(std::uint64_t board) {
@@ -355,6 +390,7 @@ int count_empty = 0;
 
 bool solve32(const std::uint32_t board, const std::size_t pegs) {
   ++counter;
+  ++count_empty;
 
   if (pegs == 1) {
     solved_boards[0] = board;
@@ -749,11 +785,10 @@ bool solve32(const std::uint32_t board, const std::size_t pegs) {
 bool solve(const std::uint64_t board, const std::size_t pegs) {
   if ((board & 0b111100001000000000000000000000000) == 0) {
     return solve32(static_cast<std::uint32_t>(board), pegs);
+  } else if ((board & 0b000000000000000000000000100001111) == 0) {
+    ++count_empty;
+    return solve32(static_cast<std::uint32_t>(1ul >> rotate_empty_corner_180(board)), pegs);
   }
-
-  /*if (((board & 0b000000000000000000000000100001111)) == 0)){*/
-  /*    return solve32r(static_cast<std::uint32_t>(1ul >> board), pegs);*/
-  /*  }*/
   ++counter;
 
   if (pegs == 1) {
