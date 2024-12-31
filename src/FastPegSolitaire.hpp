@@ -390,7 +390,6 @@ int count_empty = 0;
 
 bool solve32(const std::uint32_t board, const std::size_t pegs) {
   ++counter;
-  ++count_empty;
 
   if (pegs == 1) {
     solved_boards[0] = board;
@@ -408,31 +407,34 @@ bool solve32(const std::uint32_t board, const std::size_t pegs) {
     solved_boards[new_pegs] = board;
     return true;
   }
-  if (((board & can_moves_32[2].second) == can_moves_32[2].first) &&
-      solve32(board ^ can_moves_32[2].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[3].second) == can_moves_32[3].first) &&
-      solve32(board ^ can_moves_32[3].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[4].second) == can_moves_32[4].first) &&
-      solve32(board ^ can_moves_32[4].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[5].second) == can_moves_32[5].first) &&
-      solve32(board ^ can_moves_32[5].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[6].second) == can_moves_32[6].first) &&
-      solve32(board ^ can_moves_32[6].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
+  if (board & 0b001110000000000000000) {
+    ++count_empty;
+    if (((board & can_moves_32[2].second) == can_moves_32[2].first) &&
+        solve32(board ^ can_moves_32[2].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[3].second) == can_moves_32[3].first) &&
+        solve32(board ^ can_moves_32[3].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[4].second) == can_moves_32[4].first) &&
+        solve32(board ^ can_moves_32[4].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[5].second) == can_moves_32[5].first) &&
+        solve32(board ^ can_moves_32[5].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[6].second) == can_moves_32[6].first) &&
+        solve32(board ^ can_moves_32[6].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+  }  // Peg 30, 29, 28
   if (((board & can_moves_32[7].second) == can_moves_32[7].first) &&
       solve32(board ^ can_moves_32[7].second, new_pegs)) {
     solved_boards[new_pegs] = board;
@@ -453,61 +455,68 @@ bool solve32(const std::uint32_t board, const std::size_t pegs) {
     solved_boards[new_pegs] = board;
     return true;
   }
-  if (((board & can_moves_32[11].second) == can_moves_32[11].first) &&
-      solve32(board ^ can_moves_32[11].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
+  // Peg 25
+  if ((board & pr25)) {
+    if (((board & can_moves_32[11].second) == can_moves_32[11].first) &&
+        solve32(board ^ can_moves_32[11].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[12].second) == can_moves_32[12].first) &&
+        solve32(board ^ can_moves_32[12].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[13].second) == can_moves_32[13].first) &&
+        solve32(board ^ can_moves_32[13].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
   }
-  if (((board & can_moves_32[12].second) == can_moves_32[12].first) &&
-      solve32(board ^ can_moves_32[12].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[13].second) == can_moves_32[13].first) &&
-      solve32(board ^ can_moves_32[13].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[14].second) == can_moves_32[14].first) &&
-      solve32(board ^ can_moves_32[14].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[15].second) == can_moves_32[15].first) &&
-      solve32(board ^ can_moves_32[15].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[16].second) == can_moves_32[16].first) &&
-      solve32(board ^ can_moves_32[16].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[17].second) == can_moves_32[17].first) &&
-      solve32(board ^ can_moves_32[17].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[18].second) == can_moves_32[18].first) &&
-      solve32(board ^ can_moves_32[18].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[19].second) == can_moves_32[19].first) &&
-      solve32(board ^ can_moves_32[19].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[20].second) == can_moves_32[20].first) &&
-      solve32(board ^ can_moves_32[20].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[21].second) == can_moves_32[21].first) &&
-      solve32(board ^ can_moves_32[21].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
+  if ((board & pr24)) {
+    if (((board & can_moves_32[14].second) == can_moves_32[14].first) &&
+        solve32(board ^ can_moves_32[14].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[15].second) == can_moves_32[15].first) &&
+        solve32(board ^ can_moves_32[15].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[16].second) == can_moves_32[16].first) &&
+        solve32(board ^ can_moves_32[16].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[17].second) == can_moves_32[17].first) &&
+        solve32(board ^ can_moves_32[17].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+  }  // Peg 24
+  if ((board & pr23)) {
+    if (((board & can_moves_32[18].second) == can_moves_32[18].first) &&
+        solve32(board ^ can_moves_32[18].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[19].second) == can_moves_32[19].first) &&
+        solve32(board ^ can_moves_32[19].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[20].second) == can_moves_32[20].first) &&
+        solve32(board ^ can_moves_32[20].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[21].second) == can_moves_32[21].first) &&
+        solve32(board ^ can_moves_32[21].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+  }  // Peg 23
   if (((board & can_moves_32[22].second) == can_moves_32[22].first) &&
       solve32(board ^ can_moves_32[22].second, new_pegs)) {
     solved_boards[new_pegs] = board;
@@ -538,66 +547,72 @@ bool solve32(const std::uint32_t board, const std::size_t pegs) {
     solved_boards[new_pegs] = board;
     return true;
   }
-  if (((board & can_moves_32[28].second) == can_moves_32[28].first) &&
-      solve32(board ^ can_moves_32[28].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[29].second) == can_moves_32[29].first) &&
-      solve32(board ^ can_moves_32[29].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[30].second) == can_moves_32[30].first) &&
-      solve32(board ^ can_moves_32[30].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[31].second) == can_moves_32[31].first) &&
-      solve32(board ^ can_moves_32[31].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[32].second) == can_moves_32[32].first) &&
-      solve32(board ^ can_moves_32[32].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[33].second) == can_moves_32[33].first) &&
-      solve32(board ^ can_moves_32[33].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[34].second) == can_moves_32[34].first) &&
-      solve32(board ^ can_moves_32[34].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[35].second) == can_moves_32[35].first) &&
-      solve32(board ^ can_moves_32[35].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[36].second) == can_moves_32[36].first) &&
-      solve32(board ^ can_moves_32[36].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[37].second) == can_moves_32[37].first) &&
-      solve32(board ^ can_moves_32[37].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[38].second) == can_moves_32[38].first) &&
-      solve32(board ^ can_moves_32[38].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[39].second) == can_moves_32[39].first) &&
-      solve32(board ^ can_moves_32[39].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
+  if ((board & pr18)) {
+    if (((board & can_moves_32[28].second) == can_moves_32[28].first) &&
+        solve32(board ^ can_moves_32[28].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[29].second) == can_moves_32[29].first) &&
+        solve32(board ^ can_moves_32[29].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[30].second) == can_moves_32[30].first) &&
+        solve32(board ^ can_moves_32[30].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[31].second) == can_moves_32[31].first) &&
+        solve32(board ^ can_moves_32[31].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+  }  // Peg 18
+  if ((board & pr17)) {
+    if (((board & can_moves_32[32].second) == can_moves_32[32].first) &&
+        solve32(board ^ can_moves_32[32].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[33].second) == can_moves_32[33].first) &&
+        solve32(board ^ can_moves_32[33].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[34].second) == can_moves_32[34].first) &&
+        solve32(board ^ can_moves_32[34].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[35].second) == can_moves_32[35].first) &&
+        solve32(board ^ can_moves_32[35].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+  }  // Peg 17
+  if ((board & pr16)) {
+    if (((board & can_moves_32[36].second) == can_moves_32[36].first) &&
+        solve32(board ^ can_moves_32[36].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[37].second) == can_moves_32[37].first) &&
+        solve32(board ^ can_moves_32[37].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[38].second) == can_moves_32[38].first) &&
+        solve32(board ^ can_moves_32[38].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[39].second) == can_moves_32[39].first) &&
+        solve32(board ^ can_moves_32[39].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+  }  // Peg 16
   if (((board & can_moves_32[40].second) == can_moves_32[40].first) &&
       solve32(board ^ can_moves_32[40].second, new_pegs)) {
     solved_boards[new_pegs] = board;
@@ -628,66 +643,72 @@ bool solve32(const std::uint32_t board, const std::size_t pegs) {
     solved_boards[new_pegs] = board;
     return true;
   }
-  if (((board & can_moves_32[46].second) == can_moves_32[46].first) &&
-      solve32(board ^ can_moves_32[46].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[47].second) == can_moves_32[47].first) &&
-      solve32(board ^ can_moves_32[47].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[48].second) == can_moves_32[48].first) &&
-      solve32(board ^ can_moves_32[48].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[49].second) == can_moves_32[49].first) &&
-      solve32(board ^ can_moves_32[49].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[50].second) == can_moves_32[50].first) &&
-      solve32(board ^ can_moves_32[50].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[51].second) == can_moves_32[51].first) &&
-      solve32(board ^ can_moves_32[51].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[52].second) == can_moves_32[52].first) &&
-      solve32(board ^ can_moves_32[52].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[53].second) == can_moves_32[53].first) &&
-      solve32(board ^ can_moves_32[53].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[54].second) == can_moves_32[54].first) &&
-      solve32(board ^ can_moves_32[54].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[55].second) == can_moves_32[55].first) &&
-      solve32(board ^ can_moves_32[55].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[56].second) == can_moves_32[56].first) &&
-      solve32(board ^ can_moves_32[56].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[57].second) == can_moves_32[57].first) &&
-      solve32(board ^ can_moves_32[57].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
+  if ((board & pr11)) {
+    if (((board & can_moves_32[46].second) == can_moves_32[46].first) &&
+        solve32(board ^ can_moves_32[46].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[47].second) == can_moves_32[47].first) &&
+        solve32(board ^ can_moves_32[47].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[48].second) == can_moves_32[48].first) &&
+        solve32(board ^ can_moves_32[48].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[49].second) == can_moves_32[49].first) &&
+        solve32(board ^ can_moves_32[49].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+  }  // Peg 11
+  if (board & pr10) {
+    if (((board & can_moves_32[50].second) == can_moves_32[50].first) &&
+        solve32(board ^ can_moves_32[50].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[51].second) == can_moves_32[51].first) &&
+        solve32(board ^ can_moves_32[51].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[52].second) == can_moves_32[52].first) &&
+        solve32(board ^ can_moves_32[52].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[53].second) == can_moves_32[53].first) &&
+        solve32(board ^ can_moves_32[53].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+  }  // Peg 10
+  if (board & pr9) {
+    if (((board & can_moves_32[54].second) == can_moves_32[54].first) &&
+        solve32(board ^ can_moves_32[54].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[55].second) == can_moves_32[55].first) &&
+        solve32(board ^ can_moves_32[55].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[56].second) == can_moves_32[56].first) &&
+        solve32(board ^ can_moves_32[56].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[57].second) == can_moves_32[57].first) &&
+        solve32(board ^ can_moves_32[57].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+  }  // Peg 9
   if (((board & can_moves_32[58].second) == can_moves_32[58].first) &&
       solve32(board ^ can_moves_32[58].second, new_pegs)) {
     solved_boards[new_pegs] = board;
@@ -708,31 +729,33 @@ bool solve32(const std::uint32_t board, const std::size_t pegs) {
     solved_boards[new_pegs] = board;
     return true;
   }
-  if (((board & can_moves_32[62].second) == can_moves_32[62].first) &&
-      solve32(board ^ can_moves_32[62].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[63].second) == can_moves_32[63].first) &&
-      solve32(board ^ can_moves_32[63].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[64].second) == can_moves_32[64].first) &&
-      solve32(board ^ can_moves_32[64].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[65].second) == can_moves_32[65].first) &&
-      solve32(board ^ can_moves_32[65].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
-  if (((board & can_moves_32[66].second) == can_moves_32[66].first) &&
-      solve32(board ^ can_moves_32[66].second, new_pegs)) {
-    solved_boards[new_pegs] = board;
-    return true;
-  }
+  if (board & 0b00000000000000000000000000111000) {
+    if (((board & can_moves_32[62].second) == can_moves_32[62].first) &&
+        solve32(board ^ can_moves_32[62].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[63].second) == can_moves_32[63].first) &&
+        solve32(board ^ can_moves_32[63].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[64].second) == can_moves_32[64].first) &&
+        solve32(board ^ can_moves_32[64].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[65].second) == can_moves_32[65].first) &&
+        solve32(board ^ can_moves_32[65].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+    if (((board & can_moves_32[66].second) == can_moves_32[66].first) &&
+        solve32(board ^ can_moves_32[66].second, new_pegs)) {
+      solved_boards[new_pegs] = board;
+      return true;
+    }
+  }  // Peg 6, 5, 4
   if (((board & can_moves_32[67].second) == can_moves_32[67].first) &&
       solve32(board ^ can_moves_32[67].second, new_pegs)) {
     solved_boards[new_pegs] = board;
@@ -786,9 +809,12 @@ bool solve(const std::uint64_t board, const std::size_t pegs) {
   if ((board & 0b111100001000000000000000000000000) == 0) {
     return solve32(static_cast<std::uint32_t>(board), pegs);
   } else if ((board & 0b000000000000000000000000100001111) == 0) {
+    /*return solve32(static_cast<std::uint32_t>(1ul >> rotate_empty_corner_180(board)), pegs);*/
+  } else if ((board & 0b000000100000010000001110000000000) == 0) {
     ++count_empty;
-    return solve32(static_cast<std::uint32_t>(1ul >> rotate_empty_corner_180(board)), pegs);
+  } else if ((board & 0b000000000011100000010000001000000) == 0) {
   }
+
   ++counter;
 
   if (pegs == 1) {
